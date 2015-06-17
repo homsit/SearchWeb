@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>First App</title>
+	<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+	<script type="text/javascript" charset="utf-8">
+	function loadPage(url) {
+    var xmlhttp = new XMLHttpRequest();
+
+    // Callback function when XMLHttpRequest is ready
+    xmlhttp.onreadystatechange=function(){
+        if (xmlhttp.readyState === 4){
+            if (xmlhttp.status === 200) {
+                document.getElementById('result').innerHTML = xmlhttp.responseText;
+            }
+        }
+    };
+    xmlhttp.open("GET", url , true);
+    xmlhttp.send();
+	}
+	function init() {
+		loadPage("https://www.google.com/search?q=test");
+	}
+	</script>
+	</head>
+
+	<body onload="init();"">
+	<h1>Verification Results</h1>
+		<div id="result">Verify....</div>
+	</body>
+</html>
